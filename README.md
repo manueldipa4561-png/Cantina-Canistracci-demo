@@ -17,7 +17,7 @@ This demo represents the Punto Due Studio **Crescita — €700** package. It de
 - factual LocalBusiness structured data;
 - basic SEO / Open Graph metadata;
 - favicon;
-- restrained reveal interactions with reduced-motion support;
+- restrained reveal interactions with reduced-motion and no-JS fallback;
 - branded 404 page;
 - Netlify-ready deployment settings and security headers.
 
@@ -75,7 +75,7 @@ A legacy `canistracci.it` email/domain appears in some older directories, while 
 
 ## Design direction
 
-The visual system is intentionally different from a generic restaurant template. It uses an editorial wine-label language with burgundy, warm paper, serif typography, bottle/glass illustrations and restrained motion. No generic stock photography is presented as if it depicts the real venue.
+The visual system is intentionally different from a generic restaurant template. It uses an editorial wine-label language with burgundy, warm paper, serif typography, custom bottle/glass illustrations and restrained motion. No generic stock photography is presented as if it depicts the real venue.
 
 ## Project structure
 
@@ -89,8 +89,26 @@ The visual system is intentionally different from a generic restaurant template.
 ├── netlify.toml
 ├── robots.txt
 └── assets/
-    └── favicon.svg
+    ├── favicon.svg
+    └── qa-fixes.css
 ```
+
+## QA completed
+
+The rendered site was checked in Chromium at the requested widths:
+
+- 320px
+- 360px
+- 375px
+- 390px
+- 430px
+- 768px
+- 1024px
+- 1440px
+
+Checks included horizontal overflow, heading overflow, mobile-menu open/close and Escape behavior, mobile action dock behavior, internal anchor targets, touch-target sizing, console errors and page errors. No unintended horizontal overflow, missing internal targets, console errors or page errors were found after the final fixes.
+
+The rendered pass was performed against an exact local copy of the committed static source. External destinations such as Instagram, Facebook, Google Maps and telephone handlers were verified as correctly formed links in source, but were not opened inside the isolated QA renderer.
 
 ## Local development
 
